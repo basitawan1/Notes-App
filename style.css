@@ -1,0 +1,127 @@
+/* styles.css */
+:root {
+    --primary: #0066cc;
+    --secondary: #ffffff;
+    --bg: #f4f4f9;
+    --note-bg: #fff4e6;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --transition: 0.3s ease-in-out;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg);
+    color: #333;
+  }
+  
+  .app {
+    max-width: 960px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .header h1 {
+    font-size: 2rem;
+    color: var(--primary);
+  }
+  
+  #new-note {
+    background-color: var(--primary);
+    color: var(--secondary);
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  
+  #new-note:hover {
+    background-color: #004c99;
+  }
+  
+  .note-area {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  
+  .note {
+    width: 200px;
+    min-height: 150px;
+    background: var(--note-bg);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px var(--shadow);
+    padding: 10px;
+    position: relative;
+    animation: slideIn 0.4s var(--transition);
+  }
+  
+  .note textarea {
+    width: 100%;
+    height: calc(100% - 40px);
+    border: none;
+    background: transparent;
+    font-size: 1rem;
+    resize: none;
+    outline: none;
+  }
+  
+  .note .delete {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #e63946;
+    color: var(--secondary);
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  
+  .note .delete:hover {
+    background: #d62828;
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+      transform: scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .note {
+      width: 100%;
+    }
+  }
+  
